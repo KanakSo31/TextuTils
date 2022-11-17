@@ -18,6 +18,32 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
 
+  const speak = () => {
+    let msag = new SpeechSynthesisUtterance();
+    msag.text = text;
+    window.speechSynthesis.speak(msag);
+  }
+
+  const downloadTxtFile = () => {
+    const element = document.createElement("a");
+    const file = new Blob([text], {
+      type: "text/plain"
+    });
+    element.href = URL.createObjectURL(file);
+    element.download = "myFile.txt";
+    element.click();
+}
+// const handleLightTheme = () => {
+//   document.querySelector('.body').style.backgroundColor = "white"
+// }
+
+// const handleDarkTheme = () => {
+//   document.querySelector('.body').style.backgroundColor = "black"
+//   document.querySelector('.body').style.color = "white"
+  
+// }
+
+
   const [text, setText] = useState("");
   // /text = "new text"; //wrong Way To set
   //setText("new text"); //right Way To set
@@ -34,8 +60,10 @@ export default function TextForm(props) {
           rows="8"
         ></textarea>
       </div>
-      <button className="btn btn-primary m-1" onClick={handleUpClick}>To Upper Case</button>
-      <button className="btn btn-primary m-1" onClick={handleLoClick}>To Lower Case</button>
+      <button className="btn btn-primary m-1" onClick={handleUpClick}>Upper Case</button>
+      <button className="btn btn-success m-1" onClick={handleLoClick}>Lower Case</button>
+      <button onClick={speak} className="btn btn-warning mx-2 my-2"><i class="bi bi-megaphone"></i></button>
+      <button className='btn btn-dark m-1' onClick={downloadTxtFile}><i class="bi bi-download"></i></button>
     </div>
     <div className="container my-3">
         <h3>Your text summery</h3>
