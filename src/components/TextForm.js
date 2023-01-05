@@ -5,12 +5,14 @@ export default function TextForm(props) {
     // console.log("upper case was clicked"+text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("converted to Uppercase !", "success")
   };
 
   const handleLoClick = () => {
     // console.log("upper case was clicked"+text);
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("converted to Lowercase !", "success")
   };
   const downloadTxtFile = () => {
         const element = document.createElement("a");
@@ -69,10 +71,8 @@ export default function TextForm(props) {
         <textarea
           className="form-control"
           value={text}
-          onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'light',color:props.mode==='dark'?'white':'grey'}}
-          id="myBox"
-          rows="8"
-        ></textarea>
+          onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'light', color:props.mode==='dark'?'white':'Green'}}
+          id="myBox" rows="8"></textarea>
       </div>
       <button className="btn btn-primary m-1" onClick={handleUpClick}>Upper Case</button>
       <button className="btn btn-success m-1" onClick={handleLoClick}>Lower Case</button>
