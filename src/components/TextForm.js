@@ -63,30 +63,30 @@ export default function TextForm(props) {
   //setText("new text"); //right Way To set
   return (
     <>
-    <div>
+    <div className="container" style={{color:props.mode==='dark'?'darkcyan':'grey'}}>
       <h2>{props.heading}</h2>
       <div className="mb-3">
         <textarea
           className="form-control"
           value={text}
-          onChange={handleOnChange}
+          onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'light',color:props.mode==='dark'?'white':'grey'}}
           id="myBox"
           rows="8"
         ></textarea>
       </div>
       <button className="btn btn-primary m-1" onClick={handleUpClick}>Upper Case</button>
       <button className="btn btn-success m-1" onClick={handleLoClick}>Lower Case</button>
-      <button onClick={speak} className="btn btn-warning mx-2 my-2"><i class="bi bi-megaphone"></i></button>
-      <button className='btn btn-dark m-1' onClick={downloadTxtFile}><i class="bi bi-download"></i></button>
-      <button className="btn btn-primary m-1" onClick={handleUpClick}>To Upper Case</button>
-      <button className="btn btn-primary m-1" onClick={handleLoClick}>To Lower Case</button>
+      <button onClick={speak} className="btn btn-warning mx-2 my-2"><i className="bi bi-megaphone"></i></button>
+      <button className='btn btn-dark m-1' onClick={downloadTxtFile}><i className="bi bi-download"></i></button>
+      {/* <button className="btn btn-primary m-1" onClick={handleUpClick}>To Upper Case</button>
+      <button className="btn btn-primary m-1" onClick={handleLoClick}>To Lower Case</button> */}
     </div>
-    <div className="container my-3">
+    <div className="container my-3" style={{color:props.mode==='dark'?'darkgreen':'grey'}}>
         <h3>Your text summery</h3>
         <p><b>{text.split(" ").length}</b> word and <b>{text.length}</b> Charecter and</p>
         <p>It May Take <b>{0.010 * text.split(" ").length}</b> Minuits to Read</p>
         <h4>Preview</h4>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter something in the box to preview here"}</p>
     </div>
     </>
   );
