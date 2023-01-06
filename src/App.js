@@ -3,7 +3,7 @@
 
 // import logo from './logo.svg';
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, {useState } from 'react';
@@ -28,11 +28,19 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor="#042743";
       showAlert("Dark Mode Activated !", "success");
+      document.title = "TextUtils - Dark Mode";
+      // setInterval(() => {
+      //   document.title = "TextUtils - is Funny";
+      // }, 2000);
+      // setInterval(() => {
+      //   document.title = "TextUtils - Install Now";
+      // }, 3000);
     }
     else{
       setMode('light')
       document.body.style.backgroundColor="white";
       showAlert("Light Mode Activated !", "success");
+      document.title = "TextUtils - Light Mode";
     }
   }
   return (
@@ -41,7 +49,7 @@ function App() {
       <Alert alert={alert}/>
       <div className="container my-2">
       <TextForm showAlert={showAlert} heading="Enter the text below to analyse :" mode={mode}/>
-      {/* <About/> */}
+      <About/>
 
       </div>
     </>
