@@ -3,9 +3,9 @@
 
 // import logo from './logo.svg';
 import './App.css';
-import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import About from './components/About';
 import React, {useState } from 'react';
 import Alert from './components/Alert';
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
@@ -57,6 +57,7 @@ function App() {
           <Route exact path="/">
             <TextForm showAlert={showAlert} heading="Enter the text below to Analyse :" mode={mode}/>
           </Route>
+          <Link/>
         </Switch>
       </div>
     </Router>
