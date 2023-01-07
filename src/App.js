@@ -51,7 +51,7 @@ function App() {
       <Alert alert={alert}/>
       <div className="container my-2">
         <Switch>
-          <Route exact path="/about">
+          <Route exact path="/About">
             <About/>
           </Route>
           <Route exact path="/">
