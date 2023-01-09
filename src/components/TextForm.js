@@ -7,6 +7,7 @@ export default function TextForm(props) {
     setText(newText);
     props.showAlert("converted to Uppercase !", "success")
   };
+  
   const handleCopy = () =>{
     navigator.clipboard.writeText(text);
     props.showAlert("Text Copied!", "success")
@@ -18,6 +19,7 @@ export default function TextForm(props) {
     setText(newText);
     props.showAlert("converted to Lowercase !", "success")
   };
+
   const downloadTxtFile = () => {
         const element = document.createElement("a");
         const file = new Blob([text], {
