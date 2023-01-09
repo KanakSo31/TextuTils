@@ -7,6 +7,10 @@ export default function TextForm(props) {
     setText(newText);
     props.showAlert("converted to Uppercase !", "success")
   };
+  const handleCopy = () =>{
+    navigator.clipboard.writeText(text);
+    props.showAlert("Text Copied!", "success")
+  };
 
   const handleLoClick = () => {
     // console.log("upper case was clicked"+text);
@@ -32,8 +36,7 @@ export default function TextForm(props) {
     let msag = new SpeechSynthesisUtterance();
     msag.text = text;
     window.speechSynthesis.speak(msag);
-  }
-
+  };
 //   const speak = () => {
 //     let msag = new SpeechSynthesisUtterance();
 //     msag.text = text;
@@ -78,6 +81,7 @@ export default function TextForm(props) {
       <button className="btn btn-success m-1" onClick={handleLoClick}>Lower Case</button>
       <button onClick={speak} className="btn btn-warning mx-2 my-2"><i className="bi bi-megaphone"></i></button>
       <button className='btn btn-dark m-1' onClick={downloadTxtFile}><i className="bi bi-download"></i></button>
+      <button className='btn btn-outline-warning m-1' onClick={handleCopy}>Copy</button>
       {/* <button className="btn btn-primary m-1" onClick={handleUpClick}>To Upper Case</button>
       <button className="btn btn-primary m-1" onClick={handleLoClick}>To Lower Case</button> */}
     </div>
